@@ -56,7 +56,6 @@ startUp();
 
 async function startUp() {
   await getCurrentWeather();
-  setData();
 }
 
 function titleCase(str) {
@@ -82,13 +81,11 @@ function formatTime(h, m) {
 async function imperial() {
   units = "imperial";
   await getCurrentWeather();
-  setData()
 }
 
 async function metric() {
   units = "metric";
   await getCurrentWeather();
-  setData()
 }
 async function getLocation() {
   const res = await fetch(
@@ -131,6 +128,8 @@ async function getCurrentWeather() {
     console.log("Bad Response");
     return "Bad Response";
   }
+
+  setData()
   console.log(dataCurrent)
   console.log(dataForecast)
 }
@@ -278,46 +277,49 @@ function setData() {
   windGust.innerHTML = `<p class="m-0">Gust</p>
   <p class="m-0">${currentWindGust} ${units ==='imperial' ? 'mph' : 'm/s'}</p>`
 
-  
-  if (321 >= dataCurrent.weather[0].id >= 300) {
+  backgroundImage(dataCurrent.weather[0].id)
+}
+
+function backgroundImage(num) {
+  if (321 >= num && num >= 300) {
     body.style.background= 'url(static/image/bgs/drizzle.jpg) no-repeat center center fixed'
     body.style.backgroundSize = 'cover'
-  }else if(531 >= dataCurrent.weather[0].id >= 500){
+  }else if (531 >= num && num >= 500) {
     body.style.background= 'url(static/image/bgs/rain.jpg) no-repeat center center fixed'
     body.style.backgroundSize = 'cover'
-  }else if(622 >= dataCurrent.weather[0].id >= 600){
+  }else if (622 >= num && num >= 600) {
     body.style.background='url(static/image/bgs/snow.jpg) no-repeat center center fixed'
     body.style.backgroundSize = 'cover'
-  }else if(dataCurrent.weather[0].id === 741){
+  }else if (num === 741) {
     body.style.background='url(static/image/bgs/fog.jpg) no-repeat center center fixed'
     body.style.backgroundSize = 'cover'
-  }else if(781 >= dataCurrent.weather[0].id >= 700){
+  }else if (781 >= num && num >= 700) {
     body.style.background='url(static/image/bgs/atmosphere.webp) no-repeat center center fixed'
     body.style.backgroundSize = 'cover'
-  }else if(dataCurrent.weather[0].id === 800){
+  }else if (num === 800) {
     body.style.background='url(static/image/bgs/clear.jpg) no-repeat center center fixed'
     body.style.backgroundSize = 'cover'
-  }else if(802 >= dataCurrent.weather[0].id >= 801){
+  }else if (802 >= num && num >= 801) {
     body.style.background='url(static/image/bgs/scattered.jpg) no-repeat center center fixed'
     body.style.backgroundSize = 'cover'
-  }else if(dataCurrent.weather[0].id === 803){
+  }else if (num === 803) {
     body.style.background='url(static/image/bgs/mostlyCloudy.jpg) no-repeat center center fixed'
     body.style.backgroundSize = 'cover'
-  }else if(dataCurrent.weather[0].id === 804){
+  }else if (num === 802) {
     body.style.backgroundImage='url(static/image/bgs/cloudy.jpg) no-repeat center center fixed'
     body.style.backgroundSize = 'cover'
-  }else if(232 >= dataCurrent.weather[0].id >= 212){
+  }else if (232 >= num && num >= 212) {
     body.style.background='url(static/image/bgs/ThunderStorm2.jpg) no-repeat center center fixed'
     body.style.backgroundSize = 'cover'
-  }else if(211 >= dataCurrent.weather[0].id >= 200){
+  }else if (211 >= num && num >= 200) {
     body.style.background='url(static/image/bgs/ThunderStorm1.jpg) no-repeat center center fixed'
     body.style.backgroundSize = 'cover'
   }else{
     body.style.background= 'url(static/image/bgs/clear.jpg) no-repeat center center fixed'
     body.style.backgroundSize = 'cover'
   }
-
 }
+
 
 submitBtn.addEventListener("click", async (e) => {
   e.preventDefault();

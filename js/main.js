@@ -131,6 +131,8 @@ async function getCurrentWeather() {
     console.log("Bad Response");
     return "Bad Response";
   }
+  console.log(dataCurrent)
+  console.log(dataForecast)
 }
 
 function setData() {

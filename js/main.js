@@ -1,3 +1,5 @@
+
+
 const searchField = document.querySelector(".search-field");
 const submitBtn = document.querySelector("#button-search");
 const dateHeader = document.querySelector('.date-time')

@@ -130,8 +130,6 @@ async function getCurrentWeather() {
   }
 
   setData()
-  console.log(dataCurrent)
-  console.log(dataForecast)
 }
 
 function setData() {

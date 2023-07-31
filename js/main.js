@@ -1,5 +1,3 @@
-
-
 const searchField = document.querySelector(".search-field");
 const submitBtn = document.querySelector("#button-search");
 const dateHeader = document.querySelector('.date-time')
@@ -250,7 +248,7 @@ function setData() {
 
   }
 
-  dateHeader.innerText = `${wd[dayWeek]}, ${months[month]} ${day} ${year}`
+  dateHeader.innerText = `${wd[dayWeek]}, ${months[month]} ${day} ${year} ${formatTime(hours,minutes)}`
 
   cityHeader.innerText = `${cityName}`
 
@@ -280,31 +278,41 @@ function setData() {
   windGust.innerHTML = `<p class="m-0">Gust</p>
   <p class="m-0">${currentWindGust} ${units ==='imperial' ? 'mph' : 'm/s'}</p>`
 
+  body.style.background= 'url(static/image/bgs/clearsky1.jpg) no-repeat center center fixed'
+  body.style.backgroundSize = 'cover'
   if (321 >= dataCurrent.weather[0].id >= 300) {
-    body.style.background= url('../image/bgs/drizzle.jpg');
+    body.style.background= 'url(static/image/bgs/drizzle.jpg) no-repeat center center fixed'
+    body.style.backgroundSize = 'cover'
   }else if(531 >= dataCurrent.weather[0].id >= 500){
-    body.style.background= url('../image/bgs/rain.jpg');
+    body.style.background= 'url(static/image/bgs/rain.jpg) no-repeat center center fixed'
+    body.style.backgroundSize = 'cover'
   }else if(622 >= dataCurrent.weather[0].id >= 600){
-    body.style.background=`url(../image/bgs/snow.jpg) no-repeat center center fixed;`
+    body.style.background='url(static/image/bgs/snow.jpg) no-repeat center center fixed'
+    body.style.backgroundSize = 'cover'
   }else if(dataCurrent.weather[0].id === 741){
-    body.style.background=`url(../image/bgs/fog.jpg) no-repeat center center fixed;`
+    body.style.background='url(static/image/bgs/fog.jpg) no-repeat center center fixed'
+    body.style.backgroundSize = 'cover'
   }else if(781 >= dataCurrent.weather[0].id >= 700){
-    body.style.background=`url(../image/bgs/athmospher.webp) no-repeat center center fixed;`
+    body.style.background='url(static/image/bgs/athmospher.webp) no-repeat center center fixed'
+    body.style.backgroundSize = 'cover'
   }else if(dataCurrent.weather[0].id === 800){
-    body.style.background=`url(../image/bgs/clearsky1.jpg) no-repeat center center fixed;`
+    body.style.background='url(static/image/bgs/clearsky1.jpg) no-repeat center center fixed'
+    body.style.backgroundSize = 'cover'
   }else if(802 >= dataCurrent.weather[0].id >= 801){
-    body.style.background=`url(../image/bgs/Scatered-Clouds.jpg) no-repeat center center fixed;`
+    body.style.background='url(static/image/bgs/Scatered-Clouds.jpg) no-repeat center center fixed'
+    body.style.backgroundSize = 'cover'
   }else if(dataCurrent.weather[0].id === 803){
-    console.log('here')
-    body.style.backgroundImage='url(../image/bgs/mostly-Cloudy.jpg);'
+    body.style.background='url(static/image/bgs/mostly-Cloudy.jpg) no-repeat center center fixed'
+    body.style.backgroundSize = 'cover'
   }else if(dataCurrent.weather[0].id === 804){
-    body.style.backgroundImage='url(../image/bgs/cloudy.jpg) no-repeat center center fixed;'
-  }else if(802 >= dataCurrent.weather[0].id >= 801){
-    body.style.background=`url(../image/bgs/Scatered-Clouds.jpg) no-repeat center center fixed;`
+    body.style.backgroundImage='url(static/image/bgs/cloudy.jpg) no-repeat center center fixed'
+    body.style.backgroundSize = 'cover'
   }else if(232 >= dataCurrent.weather[0].id >= 212){
-    body.style.background='url(../image/bgs/Thunder-Storm.jpg) no-repeat center center fixed;'
+    body.style.background='url(static/image/bgs/Thunder-Storm.jpg) no-repeat center center fixed'
+    body.style.backgroundSize = 'cover'
   }else if(211 >= dataCurrent.weather[0].id >= 200){
-    body.style.background='url(../image/bgs/Thunderstorm.jpg) no-repeat center center fixed;'
+    body.style.background='url(static/image/bgs/Thunderstorm.jpg) no-repeat center center fixed'
+    body.style.backgroundSize = 'cover'
   }
 
 }
